@@ -10,9 +10,4 @@ List All Posts:
 The second screen lists all posts, providing users with an overview of the available content.
 
 # Technologies Used
-Use Cases
-Dagger Hilt
-API Integration using Retrofit
-MVVM Architecture
-Coroutines
-Android Navigation Component
+Use Cases - Dagger Hilt - API Integration using Retrofit - MVVM Architecture - Coroutines - Android Navigation Component
