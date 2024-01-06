@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.application.samir.R
@@ -51,7 +52,12 @@ class PostsListFragment : BaseFragment<PostsListViewModel, FragmentPostsListBind
                     }
                     is Resource.Error -> {
                         Log.e("getPostApi", "Error"+ it.message)
+                        Toast.makeText(requireContext(), it.message,Toast.LENGTH_SHORT).show()
                         builderAlert?.dismiss()
+                        findNavController().apply {
+                            popBackStack()
+                            navigateUp()
+                        }
                     }
                     is Resource.Loading -> {
                         Log.i("getPostApi", "Loading")

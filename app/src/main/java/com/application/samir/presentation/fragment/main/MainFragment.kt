@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -53,7 +54,8 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>() {
                         builderAlert?.dismiss()
                     }
                     is Resource.Error -> {
-                         Log.e("getPostApi", "Error"+ it.message)
+                        Log.e("getPostApi", "Error"+ it.message)
+                        Toast.makeText(requireContext(), it.message,Toast.LENGTH_SHORT).show()
                         builderAlert?.dismiss()
                     }
                     is Resource.Loading -> {
